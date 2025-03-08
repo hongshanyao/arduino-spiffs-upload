@@ -34,8 +34,8 @@ jobs:
     - name: Upload VSIX
       uses: actions/upload-artifact@v4
       with:
-        name: arduino-littlefs-upload.vsix
-        path: arduino-littlefs-upload*.vsix
+        name: arduino-spiffs-upload.vsix
+        path: arduino-spiffs-upload*.vsix
 
   make-release:
     needs: build-vsix
@@ -58,7 +58,7 @@ jobs:
       run: |
           rev=$(git rev-parse --short HEAD)
           mkdir release
-          cp ./arduino-littlefs-upload.vsix/arduino-littlefs-upload-*.vsix ./release/.
+          cp ./arduino-spiffs-upload.vsix/arduino-spiffs-upload-*.vsix ./release/.
           ls -l release
 
     - name: Drafting release
